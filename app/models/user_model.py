@@ -26,3 +26,11 @@ class User(Document):
         if isinstance(value, User):
             return self.email == value.email
         return False
+    
+    @property
+    def create_(self) -> datetime:
+        return self.id.generation_time
+    
+    @classmethod
+    async def by_email(self, email: str) -> 'User':
+        return await self.find_one(self.email == email)
