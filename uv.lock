@@ -161,8 +161,10 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "beanie" },
+    { name = "email-validator" },
     { name = "fastapi", extra = ["standard"] },
     { name = "motor" },
+    { name = "pydantic", extra = ["email"] },
     { name = "pydantic-settings" },
     { name = "python-decouple" },
 ]
@@ -170,8 +172,10 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beanie", specifier = ">=2.0.0" },
+    { name = "email-validator", specifier = ">=2.3.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" },
     { name = "motor", specifier = ">=3.7.1" },
+    { name = "pydantic", extras = ["email"], specifier = ">=2.11.7" },
     { name = "pydantic-settings", specifier = ">=2.10.1" },
     { name = "python-decouple", specifier = ">=3.8" },
 ]
