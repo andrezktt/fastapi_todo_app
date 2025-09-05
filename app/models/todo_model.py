@@ -11,8 +11,8 @@ class Todo(Document):
     status: bool = False
     title: Indexed(str)
     description: Indexed(str)
-    created_at: datetime = Field(default_factory=datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     owner: Link[User]
 
     def __repr__(self) -> str:
