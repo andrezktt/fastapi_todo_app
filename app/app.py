@@ -8,6 +8,8 @@ from models.user_model import User
 from models.todo_model import Todo
 from api.router import router
 
+from fastapi.middleware.cors import CORSMiddleware
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print('🔹 Iniciando conexão com o bando de dados...')
@@ -28,6 +30,14 @@ app = FastAPI(
     lifespan=lifespan, 
     title=settings.PROJECT_NAME, 
     openapi_url=f'{settings.API_V1_STR}/openapi.json'
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*']
 )
 
 app.include_router(

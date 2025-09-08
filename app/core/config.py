@@ -15,7 +15,9 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
     
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
+        'http://localhost:3000'
+    ]
 
     # Database Connection
     MONGO_CONNECTION_STRING: str = config('MONGO_CONNECTION_STRING', cast=str)
